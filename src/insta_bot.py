@@ -5,10 +5,11 @@ import os
 import time
 
 class InstagramBot:
-  def __init__(self, username, password, sorteio):
+  def __init__(self, username, password, sorteio, lista_comentario):
       self.username = username
       self.password = password
       self.sorteio = sorteio
+      self.lista_comentario = lista_comentario
       self.instagram = "https://www.instagram.com/"
       self.driver = InstagramBot.escolher_driver()
 
