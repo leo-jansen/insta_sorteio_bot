@@ -36,14 +36,19 @@ class InstagramBot:
     campo_senha.send_keys(self.password)
     campo_senha.send_keys(Keys.RETURN)
 
-  def comentario(self):
+  def comentario(self, numero_de_comentario):
+    quantidade = 0
     time.sleep(3)
     self.driver.get(self.sorteio)
     time.sleep(2)
-    campo_comentario = self.driver.find_element_by_xpath("//textarea[@class='Ypffh']")
-    campo_comentario.click()
-    campo_comentario = self.driver.find_element_by_xpath("//textarea[@class='Ypffh focus-visible']")
-    campo_comentario.clear()
-    campo_comentario.send_keys(self.lista_comentario[0])
-    time.sleep(1)
-    campo_comentario.send_keys(Keys.RETURN)
+    while quantidade < numero_de_comentario:
+      campo_comentario = self.driver.find_element_by_xpath("//textarea[@class='Ypffh']")
+      campo_comentario.click()
+      campo_comentario = self.driver.find_element_by_xpath("//textarea[@class='Ypffh focus-visible']")
+      time.sleep(1)
+      campo_comentario.clear()
+      campo_comentario.send_keys(self.lista_comentario[0])
+      time.sleep(1)
+      campo_comentario.send_keys(Keys.RETURN)
+      quantidade += 1
+      time.sleep(60)
