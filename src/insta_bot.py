@@ -36,3 +36,14 @@ class InstagramBot:
     campo_senha.send_keys(self.password)
     campo_senha.send_keys(Keys.RETURN)
 
+  def comentario(self):
+    time.sleep(3)
+    self.driver.get(self.sorteio)
+    time.sleep(2)
+    campo_comentario = self.driver.find_element_by_xpath("//textarea[@class='Ypffh']")
+    campo_comentario.click()
+    campo_comentario = self.driver.find_element_by_xpath("//textarea[@class='Ypffh focus-visible']")
+    campo_comentario.clear()
+    campo_comentario.send_keys(self.lista_comentario[0])
+    time.sleep(1)
+    campo_comentario.send_keys(Keys.RETURN)
