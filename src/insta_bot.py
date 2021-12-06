@@ -52,6 +52,7 @@ class InstagramBot:
       campo_comentario.clear()
       campo_comentario.send_keys(self.lista_comentario[0])
       time.sleep(1)
-      campo_comentario.send_keys(Keys.RETURN)
+      campo_publicar = self.driver.find_element_by_xpath("//button[@class='sqdOP yWX7d    y3zKF     ']")
+      campo_publicar.click()
       quantidade += 1
       time.sleep(60)
